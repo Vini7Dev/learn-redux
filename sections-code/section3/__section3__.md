@@ -16,3 +16,13 @@
   > **ACTION:** The identifier of which task/attribute to update in **STORE**:
     * Appears in the second parameter of REDUCER.
 ```
+
+# Steps for implementing Redux
+
+* Desing the **structure** of the **STORE**;
+
+* List the **ACTIONS** (What to do);
+
+* Create **REDUCER** function (How to do), to define how to perform that actions;
+
+* Create Redux **STORE**.
