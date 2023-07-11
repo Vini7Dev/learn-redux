@@ -17,6 +17,7 @@
     "dependencies": {
         "immer": "^9.0.15",
         "lodash": "^4.17.21",
-        "redux": "^4.2.0"
+        "redux": "^4.2.0",
+        "redux-devtools-extension": "^2.13.9"
     }
 }

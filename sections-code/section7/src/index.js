@@ -1,15 +1,30 @@
 import store from "./store/configureStore";
-import { addTask, removeTask, completedTask } from "./store/tasks";
-import { addEmployee } from "./store/employees";
+import {
+    loadTasks,
+    addNewTask,
+    updateCompleted,
+    deleteTask,
+} from "./store/tasks";
 
-// store.dispatch(addTask({ task: "Task 1" }));
-// store.dispatch(addTask({ task: "Task 2" }));
-// console.log(store.getState());
+// const gettingTasks = async () => {
+//     try {
+//         // calling api
+//         const response = await axios.get("http://localhost:5000/api/tasks");
+//         console.log(response);
 
-// store.dispatch(completedTask({ id: 2 }));
+//         // dispatch action
+//         store.dispatch(getTasks({ tasks: response.data }));
+//     } catch (error) {
+//         store.dispatch({
+//             type: "SHOW_ERROR",
+//             payload: { error: error.message },
+//         });
+//     }
+// };
 
-// store.dispatch(removeTask({ id: 1 }));
-// console.log(store.getState());
+// gettingTasks();
 
-// store.dispatch(addEmployee({ name: "Harley" }));
-store.dispatch({ type: "SHOW_ERROR", payload: { error: "User not found" } });
+store.dispatch(loadTasks());
+store.dispatch(addNewTask({ task: "Complete This Exercise" }));
+store.dispatch(updateCompleted({ id: 6, completed: true }));
+store.dispatch(deleteTask({ id: 6 }));

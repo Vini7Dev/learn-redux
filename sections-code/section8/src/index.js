@@ -1,30 +1,21 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import store from "./store/configureStore";
-import {
-    loadTasks,
-    addNewTask,
-    updateCompleted,
-    deleteTask,
-} from "./store/tasks";
+import { Provider } from "react-redux";
 
-// const gettingTasks = async () => {
-//     try {
-//         // calling api
-//         const response = await axios.get("http://localhost:5000/api/tasks");
-//         console.log(response);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    // <React.StrictMode>
+    <Provider store={store}>
+        <App />
+    </Provider>
+    // </React.StrictMode>
+);
 
-//         // dispatch action
-//         store.dispatch(getTasks({ tasks: response.data }));
-//     } catch (error) {
-//         store.dispatch({
-//             type: "SHOW_ERROR",
-//             payload: { error: error.message },
-//         });
-//     }
-// };
-
-// gettingTasks();
-
-store.dispatch(loadTasks());
-store.dispatch(addNewTask({ task: "Complete This Exercise" }));
-store.dispatch(updateCompleted({ id: 6, completed: true }));
-store.dispatch(deleteTask({ id: 6 }));
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

@@ -1,26 +1,42 @@
 {
-    "name": "redux-starter",
-    "version": "1.0.0",
-    "description": "Redux Starter Project",
-    "main": "index.js",
-    "scripts": {
-        "start": "webpack-dev-server --config ./webpack.config.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "webpack": "^4.41.6",
-        "webpack-cli": "3.3.11",
-        "webpack-dev-server": "^3.10.3"
-    },
-    "dependencies": {
-        "@reduxjs/toolkit": "^1.8.5",
-        "axios": "^0.27.2",
-        "immer": "^9.0.15",
-        "lodash": "^4.17.21",
-        "redux": "^4.2.0",
-        "redux-devtools-extension": "^2.13.9",
-        "redux-logger": "^3.0.6"
-    }
+  "name": "to-do-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.4",
+    "react-scripts": "5.0.1",
+    "redux": "^4.2.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

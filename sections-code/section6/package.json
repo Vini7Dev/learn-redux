@@ -19,6 +19,7 @@
         "immer": "^9.0.15",
         "lodash": "^4.17.21",
         "redux": "^4.2.0",
-        "redux-devtools-extension": "^2.13.9"
+        "redux-devtools-extension": "^2.13.9",
+        "redux-logger": "^3.0.6"
     }
 }
