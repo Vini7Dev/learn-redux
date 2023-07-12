@@ -137,7 +137,7 @@
   console.log(store.getState())
 ```
 
-### Dispatch ACTIONS
+# Dispatch ACTIONS
 
 ```jsx
   // >>> index.js
@@ -149,7 +149,7 @@
   console.log(store.getState())
 ```
 
-### Making ACTION TYPES (Constants)
+# Making ACTION TYPES (Constants)
 
 ```jsx
   // >>> actionTypes.js
@@ -164,4 +164,20 @@
     case actionTypes.ADD_TASK:
       ...
   */
+```
+
+# Subscribing and Unsubscribing Methods
+
+> The callback function will be executed on every STATE change
+> ATT: subscribe the callback before the dispatches you need to listen
+
+```jsx
+  // >>> index.js
+  // Subscribe the callback
+  const unsubscribe = store.subscribe(() => {
+    console.log('UPDATED', store.getState())
+  })
+
+  // Unsubscribe the callback
+  unsubscribe()
 ```
