@@ -15,7 +15,17 @@ export default function reducer(state = [], action) {
       ]
 
     case actionTypes.REMOVE_TASK:
-      return state.filter((task) => task.id !== action.payload.id)
+      return state.filter(task => task.id !== action.payload.id)
+
+    case actionTypes.TASK_COMPLETED:
+      return state.map(
+        task => task.id === action.payload.id
+          ? {
+            ...task,
+            completed: !task.completed
+          }
+          : task
+      )
 
     default:
       return state

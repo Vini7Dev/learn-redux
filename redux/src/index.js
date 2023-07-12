@@ -1,13 +1,13 @@
 import store from './store'
-import { addTask, removeTask } from './action'
+import { addTask, removeTask, taskCompleted } from './action'
 
 const unsubscribe = store.subscribe(() => {
   console.log('UPDATED', store.getState())
 })
 
 store.dispatch(addTask('Task Title'))
-
-console.log(store.getState())
+store.dispatch(taskCompleted(1))
+store.dispatch(taskCompleted(1))
 
 unsubscribe()
 
