@@ -56,3 +56,43 @@
     employees: [ { ... }, { ... }, ... ]
   }
 ```
+
+## 2) List the ACTIONS (What to do)
+
+> Tasks list:
+
+* ADD_TASK;
+* REMOVE_TASK;
+* TASK_COMPLETED.
+
+```jsx
+  {
+    type: 'ACTION_NAME',
+    payload: {
+      ...,
+    },
+  }
+```
+
+```jsx
+  const addTaskAction = {
+    type: 'ADD_TASK',
+    payload: {
+      task: 'This is new task!',
+    },
+  }
+
+  const removeTaskAction = {
+    type: 'REMOVE_TASK',
+    payload: {
+      id: 1,
+    },
+  }
+
+  const taskCompletedAction = {
+    type: 'TASK_COMPLETED',
+    payload: {
+      id: 1,
+    },
+  }
+```
