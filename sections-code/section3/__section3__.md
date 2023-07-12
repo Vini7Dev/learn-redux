@@ -148,3 +148,20 @@
 
   console.log(store.getState())
 ```
+
+### Making ACTION TYPES (Constants)
+
+```jsx
+  // >>> actionTypes.js
+  export const ADD_TASK = 'ADD_TASK'
+  export const REMOVE_TASK = 'REMOVE_TASK'
+  export const TASK_COMPLETED = 'TASK_COMPLETED'
+
+  // >>> reducer.js
+  import * as actionTypes from './actionTypes'
+
+  /*
+    case actionTypes.ADD_TASK:
+      ...
+  */
+```

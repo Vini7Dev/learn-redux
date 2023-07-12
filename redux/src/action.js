@@ -1,13 +1,15 @@
+import * as actionTypes from './actionTypes'
+
 export const addTask = (task) => {
   return {
-    type: 'ADD_TASK',
+    type: actionTypes.ADD_TASK,
     payload: { task },
   }
 }
 
 export const removeTask = (id) => {
   return {
-    type: 'REMOVE_TASK',
+    type: actionTypes.REMOVE_TASK,
     payload: { id },
   }
 }
