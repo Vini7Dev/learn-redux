@@ -96,3 +96,23 @@
     },
   }
 ```
+
+# 3) Create REDUCER function (How to do)
+
+```jsx
+  function reducer(state = [], action) {
+    switch (action.type) {
+      case 'ADD_TASK':
+        return ... // Update the STATE
+
+      case 'REMOVE_TASK':
+        return ... // Update the STATE
+
+      case 'TASK_COMPLETED':
+        return ... // Update the STATE
+
+      default:
+        return state // no updates
+    }
+  }
+```
