@@ -19,10 +19,40 @@
 
 # Steps for implementing Redux
 
-* Desing the **structure** of the **STORE**;
+* 1) Desing the **structure** of the **STORE**;
 
-* List the **ACTIONS** (What to do);
+* 2) List the **ACTIONS** (What to do);
 
-* Create **REDUCER** function (How to do), to define how to perform that actions;
+* 3) Create **REDUCER** function (How to do), to define how to perform that actions;
 
-* Create Redux **STORE**.
+* 4) Create Redux **STORE**.
+
+## 1) Design the structure of the STORE
+
+> **Example** of task array:
+
+```jsx
+  [
+    {
+      id: 1,
+      task: 'Design store',
+      completed: false,
+    }
+  ]
+```
+
+> On **STORE**, it will look like this (example with 2 slices: tasks and employees):
+
+```jsx
+  {
+    tasks: [
+      {
+        id: 1,
+        task: 'Design store',
+        completed: false,
+      },
+      { ... }, ...
+    ]
+    employees: [ { ... }, { ... }, ... ]
+  }
+```
