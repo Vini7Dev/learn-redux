@@ -136,3 +136,15 @@
 
   console.log(store.getState())
 ```
+
+### Dispatch ACTIONS
+
+```jsx
+  // >>> index.js
+  store.dispatch({
+    type: 'ACTION_NAME',
+    payload: { ... },
+  })
+
+  console.log(store.getState())
+```
