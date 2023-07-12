@@ -97,7 +97,7 @@
   }
 ```
 
-# 3) Create REDUCER function (How to do)
+## 3) Create REDUCER function (How to do)
 
 ```jsx
   function reducer(state = [], action) {
@@ -115,4 +115,24 @@
         return state // no updates
     }
   }
+```
+
+## 4) Create Redux STORE
+
+> ATT: With **LEGACY** way (as an example)
+
+```jsx
+  // >>> store.js
+  import { legacy_createStore as createStore } from 'redux'
+
+  import reducer from './reducer'
+
+  const store = createStore(reducer)
+
+  export default store
+
+  // >>> index.js
+  import store from './store'
+
+  console.log(store.getState())
 ```
