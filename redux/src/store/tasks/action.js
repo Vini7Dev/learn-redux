@@ -7,6 +7,14 @@ export const addTask = task => {
   }
 }
 
+export const fetchTodo = () => async (dispatch, _getState) => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+
+  const task = await response.json()
+
+  dispatch(addTask(task.title))
+}
+
 export const removeTask = id => {
   return {
     type: actionTypes.REMOVE_TASK,

@@ -119,6 +119,10 @@
 
 ## 4) Create Redux STORE
 
+**npm install redux**
+
+**yarn add redux**
+
 > ATT: With **LEGACY** way (as an example)
 
 ```jsx
@@ -180,4 +184,35 @@
 
   // Unsubscribe the callback
   unsubscribe()
+```
+
+# Async ACTIONS with Redux-Thunk (e.g. to call APIs)
+
+**npm install redux-thunk**
+
+**yarn add redux-thunk**
+
+```jsx
+  // >>> store.js
+  import { ..., applyMiddleware } from 'redux'
+  import thunk from 'redux-thunk'
+
+  import reducer from './reducer'
+
+  const store = createStore(reducer, applyMiddleware(thunk))
+
+  // >>> action.js
+  export const fetchExample = () => async (dispatch, getState) => {
+    const response = await fetch(API_URL)
+
+    const responseData = await response.json()
+
+    dispatch({
+      type: 'ACTION_NAME',
+      payload: responseData,
+    })
+  }
+
+  // >>> index.js
+  store.dispatch(fetchTodo())
 ```
