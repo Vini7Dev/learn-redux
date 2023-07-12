@@ -1,6 +1,6 @@
 # Redux Dev Tools for Debugging
 
-> Install the Chrome extension **[HERE](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)**
+## Install the Chrome extension **[HERE](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)**
 
 **npm install redux-devtools-extension**
 
