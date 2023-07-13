@@ -75,21 +75,21 @@
 ```
 
 ```jsx
-  const addTaskAction = {
+  const addTask = {
     type: 'ADD_TASK',
     payload: {
       task: 'This is new task!',
     },
   }
 
-  const removeTaskAction = {
+  const removeTask = {
     type: 'REMOVE_TASK',
     payload: {
       id: 1,
     },
   }
 
-  const taskCompletedAction = {
+  const taskCompleted = {
     type: 'TASK_COMPLETED',
     payload: {
       id: 1,

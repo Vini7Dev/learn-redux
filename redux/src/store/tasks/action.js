@@ -1,5 +1,12 @@
+import { createAction } from '@reduxjs/toolkit'
+
 import * as actionTypes from './actionTypes'
 
+export const addTask = createAction(actionTypes.ADD_TASK)
+export const removeTask = createAction(actionTypes.REMOVE_TASK)
+export const taskCompleted = createAction(actionTypes.TASK_COMPLETED)
+
+/*
 export const addTask = task => {
   return {
     type: actionTypes.ADD_TASK,
@@ -28,3 +35,4 @@ export const taskCompleted = id => {
     payload: { id },
   }
 }
+*/
