@@ -63,7 +63,6 @@
 
 # Combine REDUCERs with Redux Toolkit
 
-
 ```jsx
   // >>> storeConfig.js
   import taskSlice from './tasks'
