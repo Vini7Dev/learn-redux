@@ -29,3 +29,25 @@
     ],
   })
 ```
+
+# Add Redux Logger
+
+**npm install redux-logger**
+
+**yarn add redux-logger**
+
+```jsx
+  // >>> /store/storeConfig.js
+  import logger from 'redux-logger'
+
+  ...
+
+  const store = configureStore({
+    ...,
+    middleware: (getDefaultMiddleware) => [
+      ...,
+      logger,
+      ...,
+    ],
+  })
+```

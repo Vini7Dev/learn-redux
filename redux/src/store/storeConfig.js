@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
+import logger from 'redux-logger'
 
 import { taskSlice } from './tasks'
 import { employeeSlice } from './employees'
-import { log } from '../middleware/log'
+import { myMiddleware } from '../middleware/myMiddleware'
 
 const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware(),
-    log,
+    myMiddleware,
+    logger,
   ],
 })
 
