@@ -16,7 +16,6 @@
 
 # Create ACTIONS and REDUCERS with Slice of the Redux Toolkit
 
-
 ```jsx
   import { createSlice } from '@reduxjs/toolkit'
 
