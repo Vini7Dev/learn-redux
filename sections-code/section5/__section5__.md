@@ -5,7 +5,7 @@
 **yarn add @reduxjs/toolkit**
 
 ```jsx
-  // >>> store.js
+  // >>> storeConfig.js
   ...
   import { configureStore } from '@reduxjs/toolkit'
   ...
@@ -29,7 +29,7 @@
 ```
 
 ```jsx
-  // >>> action.js
+  // >>> tasks.js
   export const addTask = createAction('ADD_TASK')
   export const removeTask = createAction('REMOVE_TASK')
   export const taskCompleted = createAction('TASK_COMPLETED')
@@ -57,8 +57,8 @@
 ```
 
 ```jsx
-  // >>> reducer.js
-  createReducer([], {
+  // >>> tasks.js
+  export const reducer = createReducer([], {
     ADD_TASK: (state, action) => {
       state.push({
         id: ++id,
