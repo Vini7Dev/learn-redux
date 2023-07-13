@@ -1,16 +1,7 @@
-import {
-  legacy_createStore as createStore,
-  // applyMiddleware,
-} from 'redux'
-import { devToolsEnhancer } from 'redux-devtools-extension'
-// import thunk from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit'
 
 import reducer from './reducer'
 
-const store = createStore(
-  reducer,
-  devToolsEnhancer({ trace: true }),
-  // applyMiddleware(thunk),
-)
+const store = configureStore({ reducer })
 
 export default store
