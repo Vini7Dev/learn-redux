@@ -13,11 +13,13 @@
 ```
 
 ```jsx
-  // >>> /middleware/log.js
-  export const log = store => next => action => {
-    console.log(action, next, store)
-
-    next(action)
+  // >>> /middleware/error.js
+  export const error = store => next => action => {
+    if (action.type === 'SHOW_ERROR') {
+      console.error(action.payload.error)
+    } else {
+      next(action)
+    }
   }
 
   // >>> /store/storeConfig.js
@@ -25,7 +27,7 @@
     ...,
     middleware: (getDefaultMiddleware) => [
       ...getDefaultMiddleware(),
-      log,
+      error,
     ],
   })
 ```
