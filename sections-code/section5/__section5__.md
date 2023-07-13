@@ -14,7 +14,55 @@
   const store = configureStore({ reducer })
 ```
 
-# Create ACTION with Redux Toolkit
+# Create ACTIONS and REDUCERS with Slice of the Redux Toolkit
+
+
+```jsx
+  import { createSlice } from '@reduxjs/toolkit'
+
+  ...
+
+  const slice = createSlice({
+    name: 'nameOfTheSlice',
+    initialState: [],
+    reducers: {
+      // action: reducerFunction
+      actionName: (state, action) => {
+        // Modify the state here
+        // WITHOUT "return state"
+      }
+    }
+  })
+```
+
+```jsx
+  // >>> tasks.js
+  export const taskSlice = createSlice({
+    name: 'tasks',
+    initialState: [],
+    reducers: {
+      addTask: (state, action) => {
+        state.push({
+          id: ++id,
+          task: action.payload.task,
+          completed: false,
+        })
+      },
+      removeTask: (state, action) => {
+        const taskIndex = state.findIndex(task => task.id === action.payload.id)
+
+        state.splice(taskIndex, 1)
+      },
+      taskCompleted: (state, action) => {
+        const taskIndex = state.findIndex(task => task.id === action.payload.id)
+
+        state[taskIndex].completed = !state[taskIndex].completed
+      },
+    }
+  })
+```
+
+# [INDIVIDUALLY] Create ACTION with Redux Toolkit
 
 ```jsx
   import { createAction } from '@reduxjs/toolkit'
@@ -41,14 +89,14 @@
   store.dispatch(removeTask({ id: 1 }))
 ```
 
-# Create REDUCER with Redux Toolkit
+# [INDIVIDUALLY] Create REDUCER with Redux Toolkit
 
 ```jsx
   import { createReducer } from '@reduxjs/toolkit'
 
   ...
 
-  createReducer(START_STATE_VALUE, {
+  export const reducer = createReducer(START_STATE_VALUE, {
     ACTION_NAME: (state, action) => {
       // Modify the state here
       // WITHOUT "return state"
