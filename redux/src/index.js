@@ -1,29 +1,19 @@
 import store from './store/storeConfig'
-
 import { addEmployee } from './store/employees'
-
-/*
-import {
-  addTask,
-  removeTask,
-  taskCompleted,
-} from './store/tasks'
-*/
+import { addTask, removeTask, taskCompleted } from './store/tasks'
 
 const unsubscribe = store.subscribe(() => {
-  console.log('UPDATED', store.getState())
+  console.log('STATE UPDATED:', store.getState())
 })
 
-/*
+store.dispatch(addEmployee({ name: 'Jhon' }))
+store.dispatch(addEmployee({ name: 'Doe' }))
+
 store.dispatch(addTask({ task: 'Task Title' }))
 store.dispatch(taskCompleted({ id: 1 }))
 store.dispatch(taskCompleted({ id: 1 }))
 store.dispatch(removeTask({ id: 1 }))
 
-// unsubscribe()
-*/
-
-store.dispatch(addEmployee({ name: 'Jhon' }))
-store.dispatch(addEmployee({ name: 'Doe' }))
+unsubscribe()
 
 console.log(store.getState())

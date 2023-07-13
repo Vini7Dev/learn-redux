@@ -61,6 +61,25 @@
   })
 ```
 
+# Combine REDUCERs with Redux Toolkit
+
+
+```jsx
+  // >>> storeConfig.js
+  import taskSlice from './tasks'
+  import employeeSlice from './employees'
+
+  ...
+
+  // Replace the "const store = configureStore({ reducer})" to
+  const store = configureStore({
+    reducer: {
+      tasks: taskSlice.reducer,
+      employees: employeeSlice.reducer,
+    }
+  })
+```
+
 # [INDIVIDUALLY] Create ACTION with Redux Toolkit
 
 ```jsx
