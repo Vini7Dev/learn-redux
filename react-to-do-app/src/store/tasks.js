@@ -29,16 +29,17 @@ export const taskSlice = createSlice({
         task: action.payload.task,
         completed: action.payload.completed,
       })
+      state.loading = false
     },
     removeTask: (state, action) => {
       const taskIndex = state.tasks.findIndex(task => task.id === action.payload.id)
-
       state.tasks.splice(taskIndex, 1)
+      state.loading = false
     },
     taskCompleted: (state, action) => {
       const taskIndex = state.tasks.findIndex(task => task.id === action.payload.id)
-
       state.tasks[taskIndex].completed = !action.payload.completed
+      state.loading = false
     },
   },
 })
