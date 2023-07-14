@@ -5,15 +5,20 @@ export const api = store => next => async action => {
     return next(action)
   }
 
-  try {
-    const {
-      url,
-      method,
-      data,
-      onSuccess,
-      onError,
-    } = action.payload
+  const {
+    url,
+    method,
+    data,
+    onStart,
+    onSuccess,
+    onError,
+  } = action.payload
 
+  if (onStart) {
+    store.dispatch({ type: onStart })
+  }
+
+  try {
     const response = await axios.request({
       baseURL: 'http://localhost:5000/api',
       url,
@@ -28,6 +33,11 @@ export const api = store => next => async action => {
   } catch (error) {
     store.dispatch({
       type: onError,
+      payload: { error: error.message }
+    })
+
+    store.dispatch({
+      type: 'SHOW_ERROR',
       payload: { error: error.message }
     })
   }

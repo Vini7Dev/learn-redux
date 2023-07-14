@@ -1,4 +1,6 @@
-# Using a Simple Function to Call API
+# 3 Ways to Call API:
+
+## 1) Using a Simple Function to Call API
 
 ```js
   const gettingFromApi = async () => {
@@ -19,7 +21,7 @@
   }
 ```
 
-# Using Async Thunk Method to Call API
+## 2) Using Async Thunk Method to Call API
 
 ```js
   import { createAsyncThunk } from '@reduxjs/toolkit'
@@ -121,7 +123,7 @@
   store.dispatch(fetchTasks())
 ```
 
-# Using Custom Middlewar to Call API
+## 3) Using Custom Middlewar to Call API
 
 ```js
   // Action Object for API
@@ -131,6 +133,7 @@
       url: 'API_URL',
       method: 'POST',
       data: { message: 'Hello World!' },
+      onStart: 'actionNameOnStart',
       onSuccess: 'actionNameOnSuccess',
       onError: 'actionNameOnError',
     }
@@ -142,19 +145,24 @@
   import axios from 'axios'
 
   export const api = store => next => async action => {
-    if (action.store !== 'apiRequest') {
+    if (action.type !== 'apiRequest') {
       return next(action)
     }
 
-    try {
-      const {
-        url,
-        method,
-        data,
-        onSuccess,
-        onError,
-      } = action.payload
+    const {
+      url,
+      method,
+      data,
+      onStart,
+      onSuccess,
+      onError,
+    } = action.payload
 
+    if (onStart) {
+      store.dispatch({ type: onStart })
+    }
+
+    try {
       const response = await axios.request({
         baseURL: 'http://localhost:5000/api',
         url,
@@ -171,6 +179,11 @@
         type: onError,
         payload: { error: error.message }
       })
+
+      store.dispatch({
+        type: 'SHOW_ERROR',
+        payload: { error: error.message }
+      })
     }
   }
 
@@ -183,14 +196,34 @@
     ],
   })
 
+  // >>> tasks.js
+  export const taskSlice = createSlice({
+    ...,
+    reducers: {
+      apiRequested: (state, action) => {
+        state.loading = true
+      },
+      apiRequestFailed: (state, action) => {
+        state.error = state.payload.error
+        state.loading = false
+      },
+      getTasks: (state, action) => {
+        state.tasks = action.payload
+        state.loading = false
+      },
+      ...,
+    },
+  })
+
   // >>> index.js
   store.dispatch({
     type: 'apiRequest',
     payload: {
       url: '/tasks',
       method: 'GET',
+      onStart: 'tasks/apiRequested',
       onSuccess: 'tasks/getTasks',
-      onError: 'SHOW_ERROR',
+      onError: 'tasks/apiRequestFailed',
     }
   })
 ```
