@@ -16,7 +16,7 @@
 * [**7️⃣ Section 7:** Callgin API With Redux](/sections-code/section7/)
 * [**8️⃣ Section 8:** Redux With ReactJS](/sections-code/section8/)
 
-## 🤝 Colaborators
+## 🤝 Collaborators
 
 <table>
   <tr>
