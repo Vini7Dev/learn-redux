@@ -1,4 +1,6 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+
+import { apiCallBegan } from './api'
 
 let id = 0
 
@@ -48,4 +50,17 @@ export const {
   addTask,
   removeTask,
   taskCompleted,
+  apiRequested,
+  apiRequestFailed,
 } = taskSlice.actions
+
+// Action Creators
+export const loadTasks = () => {
+  return apiCallBegan({
+    url: '/tasks',
+    method: 'GET',
+    onStart: apiRequested.type,
+    onSuccess: getTasks.type,
+    onError: apiRequestFailed.type,
+  })
+}

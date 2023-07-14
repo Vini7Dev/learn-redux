@@ -222,6 +222,20 @@
     },
   })
 
+  ... // After exports
+
+  // Action Creators
+  // [OPTIONAL] Generalized calls to different files
+  export const loadTasks = () => {
+    return apiCallBegan({
+      url: '/tasks',
+      method: 'GET',
+      onStart: apiRequested.type,
+      onSuccess: getTasks.type,
+      onError: apiRequestFailed.type,
+    })
+  }
+
   // >>> index.js
   import { apiCallBegan } from './store/api'
 
@@ -234,4 +248,12 @@
     onSuccess: 'tasks/getTasks',
     onError: 'tasks/apiRequestFailed',
   }))
+
+  // OR
+
+  import { loadTasks } from './store/tasks'
+
+  ...
+
+  store.dispatch(loadTasks())
 ```
