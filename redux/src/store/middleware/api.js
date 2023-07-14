@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+import { apiCallBegan } from '../api'
+
 export const api = store => next => async action => {
-  if (action.type !== 'apiRequest') {
+  if (action.type !== apiCallBegan.type) {
     return next(action)
   }
 

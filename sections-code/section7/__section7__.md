@@ -141,11 +141,18 @@
 ```
 
 ```js
-  // >>> /middlewares/api.js
+  // >>> /store/api.js
+  import { createAction } from '@reduxjs/toolkit'
+
+  export const apiCallBegan = createAction('api/callBegan')
+
+  // >>> /store/middlewares/api.js
   import axios from 'axios'
 
+  import { apiCallBegan } from '../api'
+
   export const api = store => next => async action => {
-    if (action.type !== 'apiRequest') {
+    if (action.type !== apiCallBegan.type) {
       return next(action)
     }
 
@@ -216,14 +223,15 @@
   })
 
   // >>> index.js
-  store.dispatch({
-    type: 'apiRequest',
-    payload: {
-      url: '/tasks',
-      method: 'GET',
-      onStart: 'tasks/apiRequested',
-      onSuccess: 'tasks/getTasks',
-      onError: 'tasks/apiRequestFailed',
-    }
-  })
+  import { apiCallBegan } from './store/api'
+
+  ...
+
+  store.dispatch(apiCallBegan({
+    url: '/tasks',
+    method: 'GET',
+    onStart: 'tasks/apiRequested',
+    onSuccess: 'tasks/getTasks',
+    onError: 'tasks/apiRequestFailed',
+  }))
 ```
