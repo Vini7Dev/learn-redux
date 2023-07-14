@@ -120,3 +120,77 @@
   // >>> index.js
   store.dispatch(fetchTasks())
 ```
+
+# Using Custom Middlewar to Call API
+
+```js
+  // Action Object for API
+  {
+    type: 'apiRequest',
+    payload: {
+      url: 'API_URL',
+      method: 'POST',
+      data: { message: 'Hello World!' },
+      onSuccess: 'actionNameOnSuccess',
+      onError: 'actionNameOnError',
+    }
+  }
+```
+
+```js
+  // >>> /middlewares/api.js
+  import axios from 'axios'
+
+  export const api = store => next => async action => {
+    if (action.store !== 'apiRequest') {
+      return next(action)
+    }
+
+    try {
+      const {
+        url,
+        method,
+        data,
+        onSuccess,
+        onError,
+      } = action.payload
+
+      const response = await axios.request({
+        baseURL: 'http://localhost:5000/api',
+        url,
+        method,
+        data,
+      })
+
+      store.dispatch({
+        type: onSuccess,
+        payload: response.data,
+      })
+    } catch (error) {
+      store.dispatch({
+        type: onError,
+        payload: { error: error.message }
+      })
+    }
+  }
+
+  // >>> storeConfig.js
+  const store = configureStore({
+    ...,
+    middleware: (getDefaultMiddleware) => [
+      ...,
+      api,
+    ],
+  })
+
+  // >>> index.js
+  store.dispatch({
+    type: 'apiRequest',
+    payload: {
+      url: '/tasks',
+      method: 'GET',
+      onSuccess: 'tasks/getTasks',
+      onError: 'SHOW_ERROR',
+    }
+  })
+```

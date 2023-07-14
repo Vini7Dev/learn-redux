@@ -22,7 +22,7 @@
     }
   }
 
-  // >>> /store/storeConfig.js
+  // >>> storeConfig.js
   const store = configureStore({
     ...,
     middleware: (getDefaultMiddleware) => [
@@ -39,7 +39,7 @@
 **yarn add redux-logger**
 
 ```js
-  // >>> /store/storeConfig.js
+  // >>> storeConfig.js
   import logger from 'redux-logger'
 
   ...
