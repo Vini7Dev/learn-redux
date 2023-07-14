@@ -1,7 +1,5 @@
-import axios from 'axios'
-
 import store from './store/storeConfig'
-import { getTasks } from './store/tasks'
+import { fetchTasks } from './store/tasks'
 
 const unsubscribe = store.subscribe(() => {
   console.log('STATE UPDATED:', store.getState())
@@ -19,23 +17,4 @@ store.dispatch(removeTask({ id: 1 }))
 unsubscribe()
 */
 
-const gettingTasks = async () => {
-  try {
-    // calling api
-    const response = await axios.get('http://localhost:5000/api/tasks')
-
-    // dispatch action
-    store.dispatch(getTasks({
-      tasks: response.data,
-    }))
-  } catch (err) {
-    store.dispatch({
-      type: 'SHOW_ERROR',
-      payload: {
-        error: err.message,
-      },
-    })
-  }
-}
-
-gettingTasks()
+store.dispatch(fetchTasks())

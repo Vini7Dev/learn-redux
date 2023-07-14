@@ -28,6 +28,7 @@
       // action: reducerFunction
       actionName: (state, action) => {
         // Modify the state here
+        // Without "return"
       }
     }
   })
@@ -40,7 +41,7 @@
     initialState: [],
     reducers: {
       getTasks: (state, action) => {
-        return action.payload.tasks
+        state.tasks = action.payload.tasks
       },
       addTask: (state, action) => {
         state.push({
