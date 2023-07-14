@@ -33,10 +33,12 @@ export const api = store => next => async action => {
       payload: response.data,
     })
   } catch (error) {
-    store.dispatch({
-      type: onError,
-      payload: { error: error.message }
-    })
+    if (onError) {
+      store.dispatch({
+        type: onError,
+        payload: { error: error.message }
+      })
+    }
 
     store.dispatch({
       type: 'SHOW_ERROR',

@@ -85,3 +85,13 @@ export const updateCompleted = (task) => {
     onError: apiRequestFailed.type,
   })
 }
+
+export const deleteTask = (task) => {
+  return apiCallBegan({
+    url: `${url}/${task.id}`,
+    method: 'DELETE',
+    onStart: apiRequested.type,
+    onSuccess: removeTask.type,
+    onError: apiRequestFailed.type,
+  })
+}
