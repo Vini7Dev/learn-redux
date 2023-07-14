@@ -11,4 +11,4 @@ store.dispatch(loadTasks())
 
 // store.dispatch(updateCompleted({ id: 6, completed: false }))
 
-store.dispatch(deleteTask({ id: 6 }))
+// store.dispatch(deleteTask({ id: 6 }))
