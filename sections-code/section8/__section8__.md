@@ -1,4 +1,31 @@
-# Configure Redux Store on React
+# [RECOMMENDED] Connecting Redux Using React-Redux
+
+**npm install react-redux**
+
+**yarn add react-redux**
+
+```js
+  // >>> App.js
+  import React from 'react'
+  import ReactRedux from 'react-redux'
+
+  import store from './store/storeConfig'
+  import Tasks from './components/Tasks'
+
+  const App = () => {
+    return (
+      <ReactRedux.Provider store={store}>
+        <div>
+          <Tasks />
+        </div>
+      </ReactRedux.Provider>
+    )
+  }
+
+  export default App
+```
+
+# [NOT RECOMMENDED] Configure Redux Store on React
 
 ```js
   // >>> /contexts/StoreContext.js
@@ -45,7 +72,7 @@
   export default App
 ```
 
-# [NOT RECOMMENDED] Subscribe and Dispatching an Actions
+## [NOT RECOMMENDED] Subscribe and Dispatching an Actions
 
 ```js
   // >>> /components/Tasks.js

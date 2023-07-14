@@ -1,16 +1,16 @@
 import React from 'react'
+import { Provider as ReactReduxProvider } from 'react-redux'
 
 import store from './store/storeConfig'
-import StoreContext from './contexts/StoreContext'
 import Tasks from './components/Tasks'
 
 const App = () => {
   return (
-    <StoreContext.Provider value={store}>
+    <ReactReduxProvider store={store}>
       <div>
         <Tasks />
       </div>
-    </StoreContext.Provider>
+    </ReactReduxProvider>
   )
 }
 
