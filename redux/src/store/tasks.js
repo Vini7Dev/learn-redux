@@ -38,7 +38,7 @@ export const taskSlice = createSlice({
     taskCompleted: (state, action) => {
       const taskIndex = state.tasks.findIndex(task => task.id === action.payload.id)
 
-      state.tasks[taskIndex].completed = !state.tasks[taskIndex].completed
+      state.tasks[taskIndex].completed = !action.payload.completed
     },
   },
 })
@@ -71,6 +71,17 @@ export const addNewTask = (task) => {
     data: task,
     onStart: apiRequested.type,
     onSuccess: addTask.type,
+    onError: apiRequestFailed.type,
+  })
+}
+
+export const updateCompleted = (task) => {
+  return apiCallBegan({
+    url: `${url}/${task.id}`,
+    method: 'PATCH',
+    data: { completed: task.completed },
+    onStart: apiRequested.type,
+    onSuccess: taskCompleted.type,
     onError: apiRequestFailed.type,
   })
 }
