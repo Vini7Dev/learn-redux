@@ -2,8 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { apiCallBegan } from './api'
 
-let id = 0
-
 const initialState = {
   tasks: [],
   loading: false,
@@ -27,9 +25,9 @@ export const taskSlice = createSlice({
     },
     addTask: (state, action) => {
       state.tasks.push({
-        id: ++id,
+        id: action.payload.id,
         task: action.payload.task,
-        completed: false,
+        completed: action.payload.completed,
       })
     },
     removeTask: (state, action) => {
@@ -55,12 +53,24 @@ export const {
 } = taskSlice.actions
 
 // Action Creators
+const url = '/tasks'
+
 export const loadTasks = () => {
   return apiCallBegan({
-    url: '/tasks',
-    method: 'GET',
+    url,
     onStart: apiRequested.type,
     onSuccess: getTasks.type,
+    onError: apiRequestFailed.type,
+  })
+}
+
+export const addNewTask = (task) => {
+  return apiCallBegan({
+    url,
+    method: 'POST',
+    data: task,
+    onStart: apiRequested.type,
+    onSuccess: addTask.type,
     onError: apiRequestFailed.type,
   })
 }
