@@ -6,7 +6,7 @@
 
 **yarn add redux-devtools-extension**
 
-```jsx
+```js
   // >>> store.js
   ...
   import { devToolsEnhancer } from 'redux-devtools-extension'

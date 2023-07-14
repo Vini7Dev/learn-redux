@@ -4,7 +4,7 @@
 
 **yarn add @reduxjs/toolkit**
 
-```jsx
+```js
   // >>> storeConfig.js
   ...
   import { configureStore } from '@reduxjs/toolkit'
@@ -16,7 +16,7 @@
 
 # Create ACTIONS and REDUCERS with Slice of the Redux Toolkit
 
-```jsx
+```js
   import { createSlice } from '@reduxjs/toolkit'
 
   ...
@@ -34,7 +34,7 @@
   })
 ```
 
-```jsx
+```js
   // >>> tasks.js
   export const taskSlice = createSlice({
     name: 'tasks',
@@ -63,7 +63,7 @@
 
 # Combine REDUCERs with Redux Toolkit
 
-```jsx
+```js
   // >>> storeConfig.js
   import taskSlice from './tasks'
   import employeeSlice from './employees'
@@ -81,7 +81,7 @@
 
 # [INDIVIDUALLY] Create ACTION with Redux Toolkit
 
-```jsx
+```js
   import { createAction } from '@reduxjs/toolkit'
 
   ...
@@ -93,7 +93,7 @@
   const result = action(payload)
 ```
 
-```jsx
+```js
   // >>> tasks.js
   export const addTask = createAction('ADD_TASK')
   export const removeTask = createAction('REMOVE_TASK')
@@ -108,7 +108,7 @@
 
 # [INDIVIDUALLY] Create REDUCER with Redux Toolkit
 
-```jsx
+```js
   import { createReducer } from '@reduxjs/toolkit'
 
   ...
@@ -121,7 +121,7 @@
   })
 ```
 
-```jsx
+```js
   // >>> tasks.js
   export const reducer = createReducer([], {
     ADD_TASK: (state, action) => {

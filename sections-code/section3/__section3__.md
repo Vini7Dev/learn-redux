@@ -31,7 +31,7 @@
 
 > **Example** of task array:
 
-```jsx
+```js
   [
     {
       id: 1,
@@ -43,7 +43,7 @@
 
 > On **STORE**, it will look like this (example with 2 slices: tasks and employees):
 
-```jsx
+```js
   {
     tasks: [
       {
@@ -65,7 +65,7 @@
 * REMOVE_TASK;
 * TASK_COMPLETED.
 
-```jsx
+```js
   {
     type: 'ACTION_NAME',
     payload: {
@@ -74,7 +74,7 @@
   }
 ```
 
-```jsx
+```js
   const addTask = {
     type: 'ADD_TASK',
     payload: {
@@ -99,7 +99,7 @@
 
 ## 3) Create REDUCER function (How to do)
 
-```jsx
+```js
   function reducer(state = [], action) {
     switch (action.type) {
       case 'ADD_TASK':
@@ -125,7 +125,7 @@
 
 > ATT: With **LEGACY** way (as an example)
 
-```jsx
+```js
   // >>> store.js
   import { legacy_createStore as createStore } from 'redux'
 
@@ -143,7 +143,7 @@
 
 # Dispatch ACTIONS
 
-```jsx
+```js
   // >>> index.js
   store.dispatch({
     type: 'ACTION_NAME',
@@ -155,7 +155,7 @@
 
 # Making ACTION TYPES (Constants)
 
-```jsx
+```js
   // >>> actionTypes.js
   export const ADD_TASK = 'ADD_TASK'
   export const REMOVE_TASK = 'REMOVE_TASK'
@@ -175,7 +175,7 @@
 > The callback function will be executed on every STATE change
 > ATT: subscribe the callback before the dispatches you need to listen
 
-```jsx
+```js
   // >>> index.js
   // Subscribe the callback
   const unsubscribe = store.subscribe(() => {
@@ -192,7 +192,7 @@
 
 **yarn add redux-thunk**
 
-```jsx
+```js
   // >>> store.js
   import { ..., applyMiddleware } from 'redux'
   import thunk from 'redux-thunk'

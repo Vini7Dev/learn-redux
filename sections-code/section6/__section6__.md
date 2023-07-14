@@ -4,7 +4,7 @@
 
 # Middleware Creation
 
-```jsx
+```js
   const middleware = store => next => action => {
     ...
 
@@ -12,7 +12,7 @@
   }
 ```
 
-```jsx
+```js
   // >>> /middleware/error.js
   export const error = store => next => action => {
     if (action.type === 'SHOW_ERROR') {
@@ -38,7 +38,7 @@
 
 **yarn add redux-logger**
 
-```jsx
+```js
   // >>> /store/storeConfig.js
   import logger from 'redux-logger'
 
