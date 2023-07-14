@@ -9,12 +9,12 @@
 
 **Course Sections:**
 
-* [**3️⃣ Section 3:** Basics of Redux - Fundamentals](/sections-code/section3/)
-* [**4️⃣ Section 4:** Debugging on Redux](/sections-code/section4/)
-* [**5️⃣ Section 5:** Mastering Redux Toolkit](/sections-code/section5/)
-* [**6️⃣ Section 6:** Middleware on Redux](/sections-code/section6/)
-* [**7️⃣ Section 7:** Callgin API With Redux](/sections-code/section7/)
-* [**8️⃣ Section 8:** Redux With ReactJS](/sections-code/section8/)
+* [**3️⃣ Section 3:** Basics of Redux - Fundamentals](/sections-code/section3/__section3__.md)
+* [**4️⃣ Section 4:** Debugging on Redux](/sections-code/section4/__section4__.md)
+* [**5️⃣ Section 5:** Mastering Redux Toolkit](/sections-code/section5/__section5__.md)
+* [**6️⃣ Section 6:** Middleware on Redux](/sections-code/section6/__section6__.md)
+* [**7️⃣ Section 7:** Callgin API With Redux](/sections-code/section7/__section7__.md)
+* [**8️⃣ Section 8:** Redux With ReactJS](/sections-code/section8/__section8__.md)
 
 ## 🤝 Collaborators
 
